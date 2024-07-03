@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle swtich</title>
+    <style>
+        .title {
+            text-align: center;
+        }
+
+        .mods-container {
+
+            width: 100vw;
+            display: flex;
+            flex-direction: row-reverse;
+            position: relative;
+            right: 5px;
+            top: 5px;
+        }
+
+        .mods {
+            height: 35px;
+            margin-right: 10px;
+        }
+
+        #bulb {
+            display: block;
+            margin: 50px auto;
+            height: 200px;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn-container button {
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px auto;
+
+        }
+
+        .button-1 {
+            background-color: #3366ff;
+            transition: 0.5 ease-in-out;
+            padding: 5px 10px;
+        }
+
+        .button-1:hover {
+            background-color: #002080;
+        }
+
+        .bodylyt {
+            background-color: #cce0ff;
+            margin: 0px;
+        }
+
+        .bodynyt {
+            background-color: #003380;
+            margin: 0px;
+        }
+
+        .fruit {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .fruit img {
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body class="bodylyt" id="bodymods">
+    <div class="mods-container">
+        <img src="./night-mode.png" alt="" class="mods" id="nyt-mode" onclick="day()">
+        <img src="./day-mode.png" alt="day" class="mods" id="light-mode" onclick="nyt()">
+    </div>
+    <h1 class="title">Bulb toggler</h1>
+    <img src="./OFF.png" alt="nopw" id="bulb">
+    <div class="btn-container">
+        <button class="button-1" onclick="bulbon()" id="bulb-on" role="button">Toggle</button>
+        <!-- <button id="bulb-off"  onclick="bulbon()">OFF</button> -->
+    </div>
+    <div class="fruit">
+        <img src="./apple.png" alt="appple" class="fruit" id="fruits">
+        <div class="btn-container">
+            <button class="button-1" onclick="apple('app')" id="bulb-on">Apple</button>
+            <button class="button-1" onclick="apple('water')" id="bulb-on">Watermelon</button>
+            <button class="button-1" onclick="apple('straw')" id="bulb-on">Strawberry</button>
+        </div>
+    </div>
+    <script>
+        let bulblight = document.getElementById("bulb");
+        function bulbon() {
+            if (bulblight.src.includes("OFF.png")) {
+                bulblight.src = "./ON.png";
+
+            }
+            else {
+                bulblight.src = "./OFF.png";
+            }
+            // if (action == "on") {
+            //     bulblight.src = "./ON.png";
+            // } 
+            // else if(action=="off") {
+            //     bulblight.src = "./OFF.png";
+
+            // }
+        }
+
+        function apple(act) {
+            // let fruitbag = document.getElementById("fruits").src="./apple.png";
+            // if (action == 'app') {
+            //     let fruitbag = document.getElementById("fruits").src="./apple.png";
+            // }
+            // else if (action == 'water') {
+            //     let fruitbag = document.getElementById("fruits").src="./water.png";
+            // }
+            // else if (action == 'straw') {
+            //     let fruitbag = document.getElementById("fruits").src="./straw.png";
+            // }
+            let fruitbag = document.getElementById("fruits").src = "./apple.png";
+            switch (act) {
+                case 'app':
+                    fruitbag = document.getElementById("fruits").src = "./apple.png";
+                    break;
+                case 'water':
+                    fruitbag = document.getElementById("fruits").src = "./water.png";
+                    break;
+                case 'straw':
+                    let fruitbag = document.getElementById("fruits").src = "./straw.png";
+                default:
+                    break;
+            }
+        }
+        function water() {
+            let fruitbag = document.getElementById("fruits").src = "./water.png";
+        }
+        function straw() {
+            let fruitbag = document.getElementById("fruits").src = "./straw.png";
+        }
+        let mainBody = document.getElementById("bodymods");
+        function day() {
+            mainBody.classList.remove("bodylyt");
+            mainBody.classList.add("bodynyt");
+
+        }
+        function nyt() {
+            mainBody.classList.remove("bodynyt");
+            mainBody.classList.add("bodylyt");
+        }
+    </script>
+</body>
+
+</html>
